@@ -1,3 +1,5 @@
+from math import tan
+
 months = [
     "Январь", "Февраль", "Март", "Апрель",
     "Май", "Июнь", "Июль", "Август",
@@ -10,3 +12,15 @@ if 1 <= month <= 12:
     print(months[month - 1])
 else:
     print("Ошибка! Введите число от 1 до 12.")
+
+
+x = float(input("Введите x: "))
+
+if x < 0:
+    u = x**2 - 3
+elif x < 25:
+    u = 3*x - 2*x/abs(x)
+else:
+    u = 6 * tan(13 - 3*x**2)**3
+
+print(u)
