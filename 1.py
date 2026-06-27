@@ -1,0 +1,11 @@
+name = input( "Введите ваше имя: ")
+surname = input("Введите вашу фамилию:  ")
+sport = input("Введите ваш любимый спорт: ")
+teacher_name = input("Введите имя учителя по информатике: ")
+school_name = input("Введите номер вашей школы: ")
+
+print("Ваши имя и фамилия: " + name + " " + surname)
+print("Вы учились в школе № " + school_name)
+print("Ваш школьный учитель: " + teacher_name)
+print("Ваш любимый спорт: " + sport)
+print(name, surname, school_name, teacher_name, sport)
