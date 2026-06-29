@@ -1,9 +1,9 @@
 from math import tan, fabs
 
 months = [
-    "Январь", "Февраль", "Март", "Апрель",
-    "Май", "Июнь", "Июль", "Август",
-    "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
 ]
 
 month = int(input("Введите номер месяца (1-12): "))
@@ -19,8 +19,11 @@ x = float(input("Введите x: "))
 if x < 0:
     u = x**2 - 3
 elif x < 25:
-    u = 3*x - 2*x/fabs(x)
+    if x == 0:
+        x = int(input("Ошибка! Введите x не равный 0: "))
+    else:
+        u = 3 * x - 2 * x / fabs(x)
+        print(u)
 else:
     u = 6 * tan(13 - 3*x**2)**3
-
-print(u)
+    print(u)
