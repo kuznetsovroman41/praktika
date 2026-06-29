@@ -1,14 +1,18 @@
-n = int(input("Введите количество элементов первого массива: "))
-m = int(input("Введите количество элементов второго массива: "))
+A = []
+B = []
 
-arr_1 = []
-arr_2 = []
+print("Введите элементы массива A:")
+for i in range(10):
+    A.append(int(input()))
 
-for i in range(n):
-    arr_1.append(int(input(f"Введите элемент первого массива {i + 1}: ")))
+print("Введите элементы массива B:")
+for i in range(10):
+    B.append(int(input()))
 
-for e in range(m):
-    arr_2.append(int(input(f"Введите элемент второго массива {e + 1}: ")))
+print("Исходный массив A:", A)
+print("Исходный массив B:", B)
 
-print(arr_1)
-print(arr_2)
+A, B = B, A
+
+print("Преобразованный массив A:", A)
+print("Преобразованный массив B:", B)
