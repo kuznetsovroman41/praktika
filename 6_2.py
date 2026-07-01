@@ -1,18 +1,9 @@
-A = []
-B = []
+import numpy as np
 
-print("Введите элементы массива A:")
-for i in range(10):
-    A.append(int(input()))
-
-print("Введите элементы массива B:")
-for i in range(10):
-    B.append(int(input()))
-
-print("Исходный массив A:", A)
-print("Исходный массив B:", B)
+A = np.array([int(input()) for _ in range(10)])
+B = np.array([int(input()) for _ in range(10)])
 
 A, B = B, A
 
-print("Преобразованный массив A:", A)
-print("Преобразованный массив B:", B)
+print("Новый A:", A)
+print("Новый B:", B)

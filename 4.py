@@ -1,6 +1,6 @@
 a = int(input("Введите число a: "))
 
-for i in range(1, a + 2):
+for i in range(1, a + 1):
     if i * i > a:
         print("Первое число больше a:", i * i)
         break

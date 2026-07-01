@@ -1,32 +1,25 @@
-n = int(input("Введите размер матрицы: "))
-k = int(input("Введите число k: "))
+import numpy as np
 
-matrix = []
+n = int(input("Введите размер квадратной матрицы (n): "))
+k = int(input("Введите число k для проверки кратности: "))
 
-print("Введите элементы матрицы:")
-for i in range(n):
-    row = []
-    for j in range(n):
-        row.append(int(input()))
-    matrix.append(row)
+print(f"\nВведите элементы матрицы по очереди (всего нужно ввести {n * n} шт.):")
 
-count = 0
-max_elem = None
+elements = [int(input()) for _ in range(n * n)]
 
-for i in range(n):
-    for j in range(n):
-        if matrix[i][j] % k == 0:
-            count += 1
-            if max_elem is None or matrix[i][j] > max_elem:
-                max_elem = matrix[i][j]
+matrix = np.array(elements).reshape(n, n)
 
-print("Матрица:")
-for row in matrix:
-    print(row)
+multiples = matrix[matrix % k == 0]
 
-print("Количество элементов, кратных", k, "=", count)
+print("\n--- Результаты ---")
+print("Полученная матрица:")
+print(matrix)
+
+
+count = len(multiples)
+print(f"\nКоличество элементов, кратных {k}: {count}")
 
 if count > 0:
-    print("Наибольший кратный элемент:", max_elem)
+    print("Наибольший из этих элементов:", multiples.max())
 else:
-    print("Элементов, кратных", k, "нет.")
+    print(f"Элементов, кратных {k}, в матрице не обнаружено.")

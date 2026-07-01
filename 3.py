@@ -20,7 +20,7 @@ if x < 0:
     u = x**2 - 3
 elif x < 25:
     if x == 0:
-        x = int(input("Ошибка! Введите x не равный 0: "))
+        x = float(input("Ошибка! Введите x не равный 0: "))
     else:
         u = 3 * x - 2 * x / fabs(x)
         print(u)

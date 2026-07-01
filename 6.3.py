@@ -1,21 +1,11 @@
-import random
+import numpy as np
 
-arr = []
-
-for i in range(5):
-    arr.append(random.randint(-100, 100))
-
+arr = np.random.randint(-100, 101, size=5)
 print("Массив:", arr)
 
-sum_negative = 0
-has_negative = False
+negatives = arr[arr < 0]
 
-for x in arr:
-    if x < 0:
-        sum_negative += x
-        has_negative = True
-
-if has_negative:
-    print("Сумма отрицательных элементов:", sum_negative)
+if len(negatives) > 0:
+    print("Сумма отрицательных:", negatives.sum())
 else:
     print("Отрицательных элементов нет")

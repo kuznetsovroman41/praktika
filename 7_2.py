@@ -1,41 +1,19 @@
-n = int(input("Введите размер матрицы: "))
+import numpy as np
 
-matrix = []
+n = int(input("Введите размер квадратной матрицы (n): "))
 
-print("Введите элементы матрицы:")
-for i in range(n):
-    row = []
-    for j in range(n):
-        row.append(float(input()))
-    matrix.append(row)
+print(f"Введите элементы матрицы ({n * n} шт.):")
+elements = [float(input()) for _ in range(n * n)]
+matrix = np.array(elements).reshape(n, n)
 
-max_abs = abs(matrix[0][0])
-row_index = 0
-col_index = 0
+row_index, col_index = np.unravel_index(np.abs(matrix).argmax(), matrix.shape)
 
-for i in range(n):
-    for j in range(n):
-        if abs(matrix[i][j]) > max_abs:
-            max_abs = abs(matrix[i][j])
-            row_index = i
-            col_index = j
+print("\nИсходная матрица:")
+print(matrix)
+print(f"Максимальный по модулю элемент: {matrix[row_index, col_index]} (строка {row_index + 1}, столбец {col_index + 1})")
 
-print("Исходная матрица:")
-for row in matrix:
-    print(row)
+new_matrix = np.delete(matrix, row_index, axis=0)
+new_matrix = np.delete(new_matrix, col_index, axis=1)
 
-print("Максимальный по модулю элемент:", matrix[row_index][col_index])
-
-new_matrix = []
-
-for i in range(n):
-    if i != row_index:
-        new_row = []
-        for j in range(n):
-            if j != col_index:
-                new_row.append(matrix[i][j])
-        new_matrix.append(new_row)
-
-print("Новая матрица:")
-for row in new_matrix:
-    print(row)
+print(f"\nНовая матрица порядка {n - 1}:")
+print(new_matrix)

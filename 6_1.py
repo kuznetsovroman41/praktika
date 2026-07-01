@@ -1,18 +1,9 @@
-n = int(input("Введите количество элементов: "))
+import numpy as np
 
-arr = []
-for i in range(n):
-    arr.append(int(input(f"Введите элемент {i + 1}: ")))
+n = int(input("Количество элементов: "))
+arr = np.array([int(input(f"Элемент {i+1}: ")) for i in range(n)])
 
-min_elem = arr[0]
+min_elem = arr[np.abs(arr).argmin()]
+print("Минимальный по модулю:", min_elem)
 
-for x in arr:
-    if abs(x) < abs(min_elem):
-        min_elem = x
-
-print("Минимальный по модулю элемент:", min_elem)
-
-arr.reverse()
-
-print("Массив в обратном порядке:")
-print(arr)
+print("В обратном порядке:", arr[::-1])

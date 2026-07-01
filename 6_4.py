@@ -1,12 +1,6 @@
-list = [True, 5, 'go', 3 + 0.1j]
+import numpy as np
 
-print("Исходный список:", list)
+my_list = np.array([True, 5, 'go', 3 + 0.1j], dtype=object)
 
-last = list[-1]
-
-for i in range(len(list) - 1, 0, -1):
-    list[i] = list[i - 1]
-
-list[0] = last
-
-print("После сдвига:", list)
+my_list = np.roll(my_list, 1)
+print("После сдвига:", my_list)

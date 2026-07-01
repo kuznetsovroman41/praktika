@@ -1,9 +1,8 @@
 text_1 = input("Введите текст: ")
-word = input("Введите слово: ")
+word = input("Введите слово, которое нужно посчитать: ")
 
-count = text_1.count(word)
-print("Количество:", count)
-
+found_text = text_1.count(word)
+print("Количество: ", found_text)
 
 text_2 = input("Введите текст: ")
 old = input("Что заменить: ")
